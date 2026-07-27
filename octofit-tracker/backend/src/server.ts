@@ -16,6 +16,14 @@ const baseUrl = codespaceName
 
 app.use(express.json());
 
+app.get('/', (_req, res) => {
+  res.json({
+    message: 'OctoFit backend API is running',
+    healthEndpoint: '/api/health',
+    apiBaseUrl: baseUrl,
+  });
+});
+
 app.get('/api/health', async (_req, res) => {
   const userCount = await User.countDocuments();
   res.json({ status: 'ok', service: 'octofit-backend', apiBaseUrl: baseUrl, userCount });
