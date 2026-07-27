@@ -1,12 +1,23 @@
 import { useEffect, useMemo, useState } from 'react'
 
 function buildApiUrl(path) {
+  if (typeof window === 'undefined') {
+    return `http://localhost:8000${path}`
+  }
+
+  const origin = window.location.origin
+  const isLocalhost = origin.includes('localhost') || origin.includes('127.0.0.1')
+
+  if (isLocalhost) {
+    return `http://localhost:8000${path}`
+  }
+
   const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
   if (codespaceName) {
     return `https://${codespaceName}-8000.app.github.dev${path}`
   }
 
-  return `http://localhost:8000${path}`
+  return `${origin}${path}`
 }
 
 function normalizeItems(payload) {
