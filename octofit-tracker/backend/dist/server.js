@@ -18,6 +18,13 @@ const baseUrl = codespaceName
     ? `https://${codespaceName}-8000.app.github.dev`
     : 'http://localhost:8000';
 app.use(express_1.default.json());
+app.get('/', (_req, res) => {
+    res.json({
+        message: 'OctoFit backend API is running',
+        healthEndpoint: '/api/health',
+        apiBaseUrl: baseUrl,
+    });
+});
 app.get('/api/health', async (_req, res) => {
     const userCount = await User_1.default.countDocuments();
     res.json({ status: 'ok', service: 'octofit-backend', apiBaseUrl: baseUrl, userCount });
