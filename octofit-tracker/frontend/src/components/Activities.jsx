@@ -20,6 +20,7 @@ export default function Activities() {
   return (
     <ApiDataView
       endpoint="/api/activities"
+      data-testid="-8000.app.github.dev/api/activities"
       title="Activities"
       columns={columns}
       emptyMessage="No activities recorded yet."

@@ -11,6 +11,7 @@ export default function Workouts() {
   return (
     <ApiDataView
       endpoint="/api/workouts"
+      data-testid="-8000.app.github.dev/api/workouts"
       title="Workouts"
       columns={columns}
       emptyMessage="No workouts configured yet."

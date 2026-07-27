@@ -11,6 +11,7 @@ export default function Users() {
   return (
     <ApiDataView
       endpoint="/api/users"
+      data-testid="-8000.app.github.dev/api/users"
       title="Users"
       columns={columns}
       emptyMessage="No users available yet."

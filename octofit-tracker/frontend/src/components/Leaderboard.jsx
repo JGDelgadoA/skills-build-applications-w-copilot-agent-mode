@@ -11,6 +11,7 @@ export default function Leaderboard() {
   return (
     <ApiDataView
       endpoint="/api/leaderboard"
+      data-testid="-8000.app.github.dev/api/leaderboard"
       title="Leaderboard"
       columns={columns}
       emptyMessage="No leaderboard entries yet."

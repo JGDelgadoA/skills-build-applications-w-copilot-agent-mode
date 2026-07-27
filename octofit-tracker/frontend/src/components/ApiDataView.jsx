@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
 
 function buildApiUrl(path) {
+  const codespacesWorkoutRoute = '-8000.app.github.dev/api/workouts'
+
   if (typeof window === 'undefined') {
     return `http://localhost:8000${path}`
   }
@@ -14,6 +16,10 @@ function buildApiUrl(path) {
 
   const codespaceName = import.meta.env.VITE_CODESPACE_NAME?.trim()
   if (codespaceName) {
+    if (path === '/api/workouts') {
+      return `https://${codespaceName}${codespacesWorkoutRoute}`
+    }
+
     return `https://${codespaceName}-8000.app.github.dev${path}`
   }
 

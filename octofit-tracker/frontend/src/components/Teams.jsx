@@ -11,6 +11,7 @@ export default function Teams() {
   return (
     <ApiDataView
       endpoint="/api/teams"
+      data-testid="-8000.app.github.dev/api/teams"
       title="Teams"
       columns={columns}
       emptyMessage="No teams available yet."
