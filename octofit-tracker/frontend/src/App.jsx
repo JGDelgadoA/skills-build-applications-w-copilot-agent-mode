@@ -1,5 +1,10 @@
 import { NavLink, Route, BrowserRouter, Routes } from 'react-router-dom'
 import appLogo from '../../../docs/octofitapp-small.png'
+import Activities from './components/Activities.jsx'
+import Leaderboard from './components/Leaderboard.jsx'
+import Teams from './components/Teams.jsx'
+import Users from './components/Users.jsx'
+import Workouts from './components/Workouts.jsx'
 import './App.css'
 
 function HomePage() {
@@ -15,9 +20,12 @@ function HomePage() {
       <p className="mb-3">
         Track workouts, compare team milestones, and discover personalized recommendations from one cohesive dashboard.
       </p>
-      <div className="d-flex gap-2">
+      <div className="d-flex flex-wrap gap-2">
         <a className="btn btn-primary" href="/dashboard">Open dashboard</a>
         <a className="btn btn-outline-secondary" href="https://vite.dev/" target="_blank" rel="noreferrer">Vite docs</a>
+      </div>
+      <div className="alert alert-info mt-4 mb-0">
+        Set <code>VITE_CODESPACE_NAME</code> in <code>.env.local</code> to target the Codespaces API URL.
       </div>
     </div>
   )
@@ -26,17 +34,20 @@ function HomePage() {
 function DashboardPage() {
   return (
     <div className="row g-4">
-      <div className="col-md-6">
-        <div className="card shadow-sm border-0 h-100 p-4">
-          <h2 className="h4">Today&apos;s activity</h2>
-          <p className="text-muted">3 workouts logged · 12.4 km moved · 1 new team challenge.</p>
-        </div>
+      <div className="col-12 col-xl-6">
+        <Activities />
       </div>
-      <div className="col-md-6">
-        <div className="card shadow-sm border-0 h-100 p-4">
-          <h2 className="h4">Leaderboard pulse</h2>
-          <p className="text-muted">Your team is currently in second place with a 7% lead over the previous week.</p>
-        </div>
+      <div className="col-12 col-xl-6">
+        <Leaderboard />
+      </div>
+      <div className="col-12 col-xl-6">
+        <Teams />
+      </div>
+      <div className="col-12 col-xl-6">
+        <Users />
+      </div>
+      <div className="col-12">
+        <Workouts />
       </div>
     </div>
   )
