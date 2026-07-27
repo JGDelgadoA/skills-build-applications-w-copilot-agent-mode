@@ -1,0 +1,14 @@
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.card {
+  border-radius: 1.25rem;
+}
